@@ -48,7 +48,6 @@ const EditShop = ({ route, navigation }) => {
       Object.entries(form).forEach(([key, value]) => {
         formData.append(key, value);
       });
-      formData.append("added_by", store.user.id);
       const { message } = await Fetch(
         store.database.name,
         `/customer?id=${form.id}`,
@@ -92,40 +91,40 @@ const EditShop = ({ route, navigation }) => {
               defaultValue={form.owner}
               onChangeText={(value) => handleChange("owner", value)}
               style={commonStyles.input}
-              placeholder='Shop owner name'
+              placeholder="Shop owner name"
             />
             <TextInput
               defaultValue={form.shopName}
               onChangeText={(value) => handleChange("shopName", value)}
               style={commonStyles.input}
-              placeholder='Shop name'
+              placeholder="Shop name"
             />
             <TextInput
               defaultValue={form.address}
               onChangeText={(value) => handleChange("address", value)}
               style={commonStyles.input}
-              placeholder='Address'
+              placeholder="Address"
               multiline
             />
             <TextInput
               defaultValue={form.phone?.toString()}
               onChangeText={(value) => handleChange("phone", value)}
               style={commonStyles.input}
-              placeholder='Phone number'
-              keyboardType='phone-pad'
+              placeholder="Phone number"
+              keyboardType="phone-pad"
               maxLength={11}
             />
             <TextInput
               defaultValue={form.machine_model}
               onChangeText={(value) => handleChange("machine_model", value)}
               style={commonStyles.input}
-              placeholder='Machine Model'
+              placeholder="Machine Model"
             />
             <Select
-              name='machine_type'
+              name="machine_type"
               defaultValue={form.machine_type}
-              placeholder='Machine Type'
-              header='type'
+              placeholder="Machine Type"
+              header="type"
               options={[
                 { id: 1, type: "switchCafe" },
                 { id: 2, type: "others" },
@@ -137,7 +136,7 @@ const EditShop = ({ route, navigation }) => {
               defaultValue={form.product_info}
               onChangeText={(value) => handleChange("product_info", value)}
               style={commonStyles.input}
-              placeholder='Product info'
+              placeholder="Product info"
               multiline
             />
             {store.user.designation === "Admin" ? (
@@ -145,8 +144,8 @@ const EditShop = ({ route, navigation }) => {
                 defaultValue={form.commission?.toString()}
                 onChangeText={(value) => handleChange("commission", value)}
                 style={commonStyles.input}
-                placeholder='How much commission you want to pay %'
-                keyboardType='phone-pad'
+                placeholder="How much commission you want to pay %"
+                keyboardType="phone-pad"
               />
             ) : null}
             <View
@@ -170,7 +169,7 @@ const EditShop = ({ route, navigation }) => {
             <Button
               disabled={store.loading || disabled}
               onPress={onSubmit}
-              title='Submit'
+              title="Submit"
             />
           </View>
         </View>
