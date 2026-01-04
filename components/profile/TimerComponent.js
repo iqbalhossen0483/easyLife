@@ -27,6 +27,12 @@ function TimerComponent({ runningTarget }) {
     return () => clearInterval(timer);
   }, []);
 
+  const remainingAmnt = runningTarget.targetedAmnt - runningTarget.achiveAmnt;
+  const commissionAmount =
+    (runningTarget.targetedAmnt * runningTarget.commission) / 100;
+  const newCommissionAmount =
+    (runningTarget.achiveAmnt * runningTarget.commission) / 100;
+
   return (
     <View>
       <Text style={{ color: "#9e4c0d" }}>Ending In: {time}</Text>
@@ -37,13 +43,12 @@ function TimerComponent({ runningTarget }) {
         Achieved Amnt: <BDT amount={runningTarget.achiveAmnt} />
       </Text>
       <Text>
-        Remaining Amnt:{" "}
-        <BDT amount={runningTarget.targetedAmnt - runningTarget.achiveAmnt} />
+        Remaining Amnt: <BDT amount={remainingAmnt >= 0 ? remainingAmnt : 0} />
       </Text>
       <Text>
         You will get:{" "}
         <BDT
-          amount={(runningTarget.targetedAmnt * runningTarget.commission) / 100}
+          amount={remainingAmnt >= 0 ? commissionAmount : newCommissionAmount}
         />
       </Text>
     </View>

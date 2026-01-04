@@ -1,11 +1,11 @@
-import { View } from "react-native";
 import React from "react";
+import { View } from "react-native";
 
 import { commonStyles } from "../../css/common";
-import TimerComponent from "./TimerComponent";
 import { styles } from "../../css/profile";
 import BDT from "../utilitise/BDT";
 import P from "../utilitise/P";
+import TimerComponent from "./TimerComponent";
 
 const Target = ({ commision, user }) => {
   const targets = {
@@ -50,9 +50,9 @@ const Target = ({ commision, user }) => {
               Got Commission: <BDT amount={commision.commission} />
             </P>
             <P>
-              Status: <P color='green'>Achieve</P>
+              Status: <P color="green">Achieve</P>
             </P>
-            <P color='orange'>
+            <P color="orange">
               {commision.achieve
                 ? "Achieve & waiting \n for confirming"
                 : "Waiting to achieve"}
