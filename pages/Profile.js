@@ -60,14 +60,14 @@ const Profile = ({ route, navigation }) => {
           <View style={styles.profileWrapper}>
             <Avater url={user.profile} />
             <View>
-              <P bold size={16} color='green'>
+              <P bold size={16} color="green">
                 {user.name}
               </P>
-              <P bold size={13} color='darkGray'>
+              <P bold size={13} color="darkGray">
                 {user.designation}
               </P>
               <Pressable onPress={() => openNumber(user.phone)}>
-                <P color='green'>{user.phone}</P>
+                <P color="green">{user.phone}</P>
               </Pressable>
             </View>
           </View>
@@ -78,15 +78,15 @@ const Profile = ({ route, navigation }) => {
                 onPress={() =>
                   navigation.navigate("balanceTransfer", { user: user })
                 }
-                title='Money Transfer'
+                title="Money Transfer"
               />
               {user?.id === store?.user?.id ? (
                 <>
-                  <Button onPress={goForEdit} title='Edit Profile' />
+                  <Button onPress={goForEdit} title="Edit Profile" />
                   <Button
                     style={{ backgroundColor: "#e8a72e" }}
                     onPress={logOut}
-                    title='LogOut'
+                    title="LogOut"
                   />
                 </>
               ) : null}

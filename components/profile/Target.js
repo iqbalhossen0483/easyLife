@@ -29,7 +29,7 @@ const Target = ({ commision, user }) => {
       <P bold style={commonStyles.heading}>
         Targets
       </P>
-      <View style={styles.workContainer}>
+      <View style={[styles.workContainer, { flexWrap: "wrap" }]}>
         <View>
           <P>Targets Report</P>
           <P style={{ color: "#75850c" }}>Running: {targets.running}</P>
