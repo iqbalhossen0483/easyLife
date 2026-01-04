@@ -107,7 +107,7 @@ const Select = ({
 
       {show && (
         <ScrollView
-          keyboardShouldPersistTaps='handled'
+          keyboardShouldPersistTaps="handled"
           nestedScrollEnabled={true}
           style={{
             ...commonStyles.selectView,
@@ -116,7 +116,7 @@ const Select = ({
           }}
         >
           {loading ? (
-            <P align='center'>Loading...</P>
+            <P align="center">Loading...</P>
           ) : data && data.length ? (
             data.map((item, i, arr) => (
               <TouchableHighlight
@@ -135,7 +135,7 @@ const Select = ({
                 >
                   <P size={15}>{item[header]}</P>
                   {title ? (
-                    <P color='darkGray' style={{ marginTop: -3 }}>
+                    <P color="darkGray" style={{ marginTop: -3 }}>
                       {item[title]}
                     </P>
                   ) : null}
@@ -143,7 +143,7 @@ const Select = ({
               </TouchableHighlight>
             ))
           ) : (
-            <P align='center'>no options</P>
+            <P align="center">no options</P>
           )}
         </ScrollView>
       )}

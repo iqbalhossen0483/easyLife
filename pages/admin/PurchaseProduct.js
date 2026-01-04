@@ -112,10 +112,10 @@ const PurchaseProduct = ({ navigation }) => {
           </P>
           <View style={{ rowGap: 10, zIndex: 0 }}>
             <Select
-              header='name'
+              header="name"
               zIndex={200}
-              name='supplier'
-              placeholder='Type supplier name'
+              name="supplier"
+              placeholder="Type supplier name"
               url={"/supplier?opt=id,name"}
               search={true}
               handler={(_, info) =>
@@ -129,7 +129,7 @@ const PurchaseProduct = ({ navigation }) => {
               <>
                 <P
                   bold
-                  align='center'
+                  align="center"
                   style={{
                     borderBottomWidth: 1,
                     borderBottomColor: color.gray,
@@ -153,7 +153,7 @@ const PurchaseProduct = ({ navigation }) => {
                     </View>
                   </View>
                 ) : (
-                  <P align='center'>No product</P>
+                  <P align="center">No product</P>
                 )}
 
                 <Button
@@ -166,7 +166,7 @@ const PurchaseProduct = ({ navigation }) => {
                     alignSelf: "flex-end",
                   }}
                   onPress={() => setShow((prev) => !prev)}
-                  title={<AntDesign name='pluscircle' size={18} color='#fff' />}
+                  title={<AntDesign name="pluscircle" size={18} color="#fff" />}
                 />
               </>
             ) : null}
@@ -201,8 +201,8 @@ const PurchaseProduct = ({ navigation }) => {
                     return { ...prev, giveAmount: parseInt(value) };
                   })
                 }
-                placeholder='Give amount ৳'
-                keyboardType='phone-pad'
+                placeholder="Give amount ৳"
+                keyboardType="phone-pad"
               />
             </View>
 
@@ -219,7 +219,7 @@ const PurchaseProduct = ({ navigation }) => {
                 paddingTop: 5,
                 height: 100,
               }}
-              placeholder='Payment Information'
+              placeholder="Payment Information"
               multiline
             />
             {data.files.length ? (
@@ -241,9 +241,9 @@ const PurchaseProduct = ({ navigation }) => {
                         right: 0,
                         backgroundColor: color.gray,
                       }}
-                      name='close-sharp'
+                      name="close-sharp"
                       size={20}
-                      color='black'
+                      color="black"
                     />
                   </Pressable>
                 ))}
@@ -252,11 +252,11 @@ const PurchaseProduct = ({ navigation }) => {
             <FileInput
               disable={!data.payment_info}
               setImage={(file) => addfile(file)}
-              title='Add file +'
+              title="Add file +"
             />
 
             <Button
-              title='Submit'
+              title="Submit"
               onPress={onSubmit}
               disabled={
                 store.loading ||
