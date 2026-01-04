@@ -1,14 +1,14 @@
-import { Pressable, ScrollView, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
-import { Fetch, dateFormatter, openNumber } from "../../services/common";
-import { color } from "../../components/utilitise/colors";
-import { alert } from "../../components/utilitise/Alert";
-import Button from "../../components/utilitise/Button";
 import { Common } from "../../components/Common";
+import { alert } from "../../components/utilitise/Alert";
 import BDT from "../../components/utilitise/BDT";
-import useStore from "../../context/useStore";
+import Button from "../../components/utilitise/Button";
+import { color } from "../../components/utilitise/colors";
 import P from "../../components/utilitise/P";
+import useStore from "../../context/useStore";
+import { Fetch, dateFormatter, openNumber } from "../../services/common";
 
 const Commission = ({ navigation }) => {
   const [commissions, setCommissions] = useState(null);
@@ -91,23 +91,29 @@ const Commission = ({ navigation }) => {
               {commissions.running ? (
                 <>
                   <P bold>Running Targets:</P>
-                  {commissions.running.map((comision) => (
-                    <List key={comision.id} comision={comision}>
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          marginTop: 5,
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <Button
-                          onPress={() => deleteCommission(comision)}
-                          style={{ backgroundColor: color.orange }}
-                          title='Delete'
-                        />
-                      </View>
-                    </List>
-                  ))}
+                  {commissions.running.length > 0 ? (
+                    commissions.running.map((comision) => (
+                      <List key={comision.id} comision={comision}>
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            marginTop: 5,
+                            justifyContent: "flex-end",
+                          }}
+                        >
+                          <Button
+                            onPress={() => deleteCommission(comision)}
+                            style={{ backgroundColor: color.orange }}
+                            title="Delete"
+                          />
+                        </View>
+                      </List>
+                    ))
+                  ) : (
+                    <P style={{ marginVertical: 10 }}>
+                      No running target found
+                    </P>
+                  )}
                 </>
               ) : null}
 
@@ -127,7 +133,7 @@ const Commission = ({ navigation }) => {
                           <Button
                             onPress={() => achieveCommissions(comision)}
                             style={{ backgroundColor: color.green }}
-                            title='Achieve'
+                            title="Achieve"
                           />
                         ) : (
                           <P>{`Achieve & waiting \n for confirming`}</P>
@@ -204,7 +210,7 @@ function List({ comision, children }) {
           {comision.status === "achive" && "%"}
         </P>
         <P>
-          <P bold>Status:</P> <P color='orange'>{comision.status}</P>
+          <P bold>Status:</P> <P color="orange">{comision.status}</P>
         </P>
 
         <P>
